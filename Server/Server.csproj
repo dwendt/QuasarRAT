@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -55,12 +54,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LiteDB, Version=3.0.0.0, Culture=neutral, PublicKeyToken=4ee40123013c9f27, processorArchitecture=MSIL">
-      <HintPath>..\packages\LiteDB.3.0.0\lib\net35\LiteDB.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-  </PropertyGroup>
-  <ItemGroup>
     <Reference Include="Mono.Cecil, Version=0.9.5.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Mono.Cecil.dll</HintPath>
@@ -76,6 +69,10 @@
     <Reference Include="Vestris.ResourceLib, Version=1.4.724.0, Culture=neutral, PublicKeyToken=ec632d8ba5e5750d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Vestris.ResourceLib.dll</HintPath>
+    </Reference>
+    <Reference Include="LiteDB, Version=3.0.0.0, Culture=neutral, PublicKeyToken=4ee40123013c9f27, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiteDB.3.0.0\lib\net35\LiteDB.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -596,9 +593,7 @@
     <Content Include="Core\MouseKeyHook\HotKeys\ReadMe.txt" />
     <Content Include="Quasar_Server.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Core\NetSerializer\NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
