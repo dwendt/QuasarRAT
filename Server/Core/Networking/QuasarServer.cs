@@ -3,6 +3,7 @@ using System.Linq;
 using xServer.Core.Commands;
 using xServer.Core.NetSerializer;
 using xServer.Core.Packets;
+using xServer.Core.Storage;
 
 namespace xServer.Core.Networking
 {
@@ -39,6 +40,7 @@ namespace xServer.Core.Networking
             {
                 handler(client);
             }
+            // If existing client, unserialize data from disk.
         }
 
         /// <summary>
@@ -64,6 +66,7 @@ namespace xServer.Core.Networking
             {
                 handler(client);
             }
+            // Serialize client data to disk.
         }
 
         /// <summary>

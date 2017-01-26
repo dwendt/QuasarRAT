@@ -22,7 +22,7 @@ namespace xServer.Forms
         {
             if (_connectClient != null)
             {
-                this.Text = WindowHelper.GetWindowTitle("Startup Manager", _connectClient);
+                this.Text = WindowHelper.GetWindowTitle("On-Connect Action Manager", _connectClient);
                 AddGroups();
                 new Core.Packets.ServerPackets.GetStartupItems().Execute(_connectClient);
             }

@@ -13,6 +13,7 @@ using xServer.Core.Helper;
 using xServer.Core.Networking;
 using xServer.Core.Networking.Utilities;
 using xServer.Core.Utilities;
+using xServer.Core.Storage;
 
 namespace xServer.Forms
 {
@@ -20,6 +21,7 @@ namespace xServer.Forms
     {
         public QuasarServer ListenServer { get; set; }
         public static FrmMain Instance { get; private set; }
+        public List<KeyValuePair<string, Type>> OnConnectActions = new List<KeyValuePair<string, Type>>(); // string to filter by and type from 'PacketRegistery'
 
         private const int STATUS_ID = 4;
         private const int USERSTATUS_ID = 5;
@@ -108,8 +110,11 @@ namespace xServer.Forms
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            Storage.init();
             InitializeServer();
             AutostartListening();
+
+            Storage.addLog("QuasarRAT initialized.");
         }
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -208,11 +213,15 @@ namespace xServer.Forms
                     switch (client.Value)
                     {
                         case true:
+                            Storage.addLog("Client connected: " + client.Key.EndPoint.Address.ToString() + " - " + client.Key.Value.UserAtPc);
+
                             AddClientToListview(client.Key);
                             if (Settings.ShowPopup)
                                 ShowPopup(client.Key);
                             break;
                         case false:
+                            Storage.addLog("Client disconnected: " + client.Key.EndPoint.Address.ToString());
+
                             RemoveClientFromListview(client.Key);
                             break;
                     }
@@ -889,6 +898,22 @@ namespace xServer.Forms
             }
         }
 
+        private void logsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            using (var frm = new FrmLogs())
+            {
+                frm.ShowDialog();
+            }
+            
+            
+            // nope, doesn't close when the main form is closed.
+            /*
+            (new System.Threading.Thread(() => {
+                (new FrmLogs()).ShowDialog();
+            })).Start();
+            */
+        }
         #endregion
 
         #region "NotifyIcon"

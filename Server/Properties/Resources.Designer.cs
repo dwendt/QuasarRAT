@@ -461,7 +461,7 @@ namespace xServer.Properties {
         ///
         ///    Quasar is distributed in the hope that it will be useful,
         ///    but WITHOUT ANY WARRANTY; without even the implied warranty of
-        ///    MERCHANTABILITY or FITNESS FOR A PARTICULAR PUR [rest of string was truncated]&quot;;.
+        ///    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TermsOfUse {
             get {
